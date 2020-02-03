@@ -5,7 +5,8 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 
-(load-theme 'deeper-blue)
+;; load theme (only in GUI)
+(if (display-graphic-p) (load-theme 'deeper-blue))
 
 ;;; *.~ とかのバックアップファイルを作らない
 (setq make-backup-files nil)
@@ -58,6 +59,18 @@
 ;; C-h for backspace
 (keyboard-translate ?\C-h ?\C-?)
 
+;; make cursor a line
+(setq-default cursor-type 'bar)
+
+;; ツールバーをなくす
+(tool-bar-mode -1)
+
+;; set window size and position
+(if (window-system)
+    (set-frame-position (selected-frame) 00 0))
+(if (window-system)
+    (set-frame-size (selected-frame) 201 54))
+
 ;; delete word doesn't add to kill-ring
 (defun delete-word (arg)
   "Delete characters forward until encountering the end of a word.
@@ -74,6 +87,28 @@ With argument, do this that many times."
 
 ;; ranger
 (global-set-key "\C-x\C-d" 'ranger)
+;; カーソルが線のままになる変更
+(load-file "~/.emacs.d/elpa/ranger-20190412.624/ranger.el")
+
+;; undo tree
+(global-undo-tree-mode)
+
+;; set font size
+(set-face-attribute 'default nil :height 120)
+
+;; org-modeをきれいに (only in GUI)
+(add-to-list 'load-path "~/.emacs.d/org-beautify/")
+(if (display-graphic-p) (require 'org-bullets))
+(if (display-graphic-p) (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(if (display-graphic-p) (require 'org-beautify-theme))
+
+;; option and command keys for mac port
+(setq mac-option-modifier 'meta)
+(setq mac-command-modifier 'super)
+(global-set-key (kbd "s-x") 'kill-region)
+(global-set-key (kbd "s-c") 'kill-ring-save)
+(global-set-key (kbd "s-v") 'yank)
+(global-set-key (kbd "s-a") 'mark-whole-buffer)
 
 ;; MELPA
 (require 'package)
@@ -99,7 +134,7 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (ranger))))
+ '(package-selected-packages (quote (undo-tree smooth-scrolling ranger))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

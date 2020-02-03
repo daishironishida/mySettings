@@ -1,6 +1,7 @@
 # Created by newuser for 5.7.1
 # エディタ設定
 export EDITOR="emacs -nw"
+alias emacs='emacs -nw'
 alias em='emacs -nw'
 
 # ファイル削除系
