@@ -4,11 +4,6 @@ export EDITOR="emacs -nw"
 alias emacs='emacs -nw'
 alias em='emacs -nw'
 
-# ファイル削除系
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-
 # less
 alias less='/usr/local/Cellar/less/530_1/bin/less -X'
 
@@ -46,7 +41,7 @@ bindkey '^R' peco-history-selection
 
 # 履歴保存
 export HISTFILE=${HOME}/.zhistory
-export HISTSIZE=1000
+export HISTSIZE=100000
 export SAVEHIST=100000
 setopt hist_ignore_dups
 setopt EXTENDED_HISTORY
