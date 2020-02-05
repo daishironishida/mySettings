@@ -47,6 +47,7 @@
   (interactive)
   (let ((daily-name (format-time-string "%y%m%d-%T")))
     (find-file (format "~/memo/tmp/%s.org" daily-name))))
+(global-set-key "\C-cc" 'memo)
 
 ;; 日本語表記のチラツキをなくす
 (setq redisplay-dont-pause nil)
