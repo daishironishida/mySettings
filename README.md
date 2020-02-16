@@ -27,6 +27,8 @@
     - 最後に `/usr/local/bin/zsh` を追加
   - `chsh -s /usr/local/bin/zsh`
   - ターミナル再起動
+- peco
+  - `brew install peco`
 - cdrの保存ファイル用
   - `mkdir ~/.cache`
 - lessの最新版
