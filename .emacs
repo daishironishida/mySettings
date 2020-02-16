@@ -101,7 +101,11 @@ With argument, do this that many times."
 (add-to-list 'load-path "~/.emacs.d/org-beautify/")
 (if (display-graphic-p) (require 'org-bullets))
 (if (display-graphic-p) (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+(if (display-graphic-p) (add-hook 'org-mode-hook 'org-indent-mode))
 (if (display-graphic-p) (require 'org-beautify-theme))
+
+;; 見出しを全部表示
+(setq org-startup-folded 'showall)
 
 ;; option and command keys for mac port
 (setq mac-option-modifier 'meta)
