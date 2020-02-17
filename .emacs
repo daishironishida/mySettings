@@ -47,10 +47,15 @@
   (interactive)
   (let ((daily-name (format-time-string "%y%m%d-%T")))
     (find-file (format "~/memo/tmp/%s.org" daily-name))))
-(global-set-key "\C-cc" 'memo)
+(global-set-key "\C-cm" 'memo)
 
 ;; 日本語表記のチラツキをなくす
 (setq redisplay-dont-pause nil)
+
+;; highlighting
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "black" :background "yellow")
+               ))
 
 ;; C-jをunbind (ひらがな表記に使いたい)
 (global-unset-key (kbd "C-j"))
