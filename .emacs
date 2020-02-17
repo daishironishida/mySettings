@@ -52,11 +52,6 @@
 ;; 日本語表記のチラツキをなくす
 (setq redisplay-dont-pause nil)
 
-;; highlighting
-(add-to-list 'org-emphasis-alist
-             '("*" (:foreground "black" :background "yellow")
-               ))
-
 ;; C-jをunbind (ひらがな表記に使いたい)
 (global-unset-key (kbd "C-j"))
 (require 'org)
@@ -111,6 +106,11 @@ With argument, do this that many times."
 
 ;; 見出しを全部表示
 (setq org-startup-folded 'showall)
+
+;; highlighting
+(add-to-list 'org-emphasis-alist
+             '("*" (:foreground "black" :background "yellow")
+               ))
 
 ;; option and command keys for mac port
 (setq mac-option-modifier 'meta)
