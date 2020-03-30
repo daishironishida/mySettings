@@ -42,6 +42,9 @@
 ;; don't add newline at the end of file
 (setq mode-require-final-newline nil)
 
+;; don't add newline before headers
+(setf org-blank-before-new-entry '((heading . nil) (plain-list-item . nil)))
+
 ;; memo
 (defun memo ()
   (interactive)
