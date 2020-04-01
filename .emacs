@@ -107,6 +107,9 @@ With argument, do this that many times."
 ;; 見出しを全部表示
 (setq org-startup-folded 'showall)
 
+;; 見出しの間のスペース
+(setq org-cycle-separator-lines 1)
+
 ;; highlighting
 (add-to-list 'org-emphasis-alist
              '("*" (:foreground "black" :background "yellow")
