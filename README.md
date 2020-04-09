@@ -47,3 +47,17 @@
 ## tmux
 
 - `brew install tmux`
+
+## その他
+
+### ブラウザやMacのアプリでemacsのキーバインドを使う
+
+```
+mkdir ~/Library/KeyBindings
+cp DefaultKeyBinding.dict ~/Library/KeyBindings
+```
+
+### XCode
+
+- Preferences -> Key Bindings
+- `Move word left`, `Move word right`, `Delete word forward` の設定
