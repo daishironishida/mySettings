@@ -67,7 +67,8 @@
 (setq-default cursor-type 'bar)
 
 ;; ツールバーをなくす
-(tool-bar-mode -1)
+(if (window-system)
+    (tool-bar-mode -1))
 
 ;; set window size and position
 (if (window-system)
@@ -99,6 +100,9 @@ With argument, do this that many times."
 
 ;; set font size
 (set-face-attribute 'default nil :height 120)
+
+;; line wrap
+(setq-default word-wrap t)
 
 ;; org-modeをきれいに (only in GUI)
 (add-to-list 'load-path "~/.emacs.d/org-beautify/")
@@ -150,7 +154,10 @@ There are two things you can do about this warning:
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages (quote (undo-tree smooth-scrolling ranger))))
+ '(org-export-backends (quote (ascii html icalendar latex md odt)))
+ '(package-selected-packages
+   (quote
+    (markdown-preview-mode undo-tree smooth-scrolling ranger))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
