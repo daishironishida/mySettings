@@ -5,7 +5,7 @@ alias emacs='emacs -nw'
 alias em='emacs -nw'
 
 # less
-alias less='/usr/local/Cellar/less/530_1/bin/less -X'
+alias less='/usr/local/bin/less -X'
 
 # 色変更
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxf
@@ -97,5 +97,6 @@ export DYLD_LIBRARY_PATH=${DYLD_LIBRARY_PATH}:${OPENNI2_REDIST}
 # gradle
 export PATH=$PATH:/opt/gradle-4.10.3/bin
 
-# java
-alias java='/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home/bin/java'
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/Users/nishidadaishiro/.sdkman"
+[[ -s "/Users/nishidadaishiro/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/nishidadaishiro/.sdkman/bin/sdkman-init.sh"
