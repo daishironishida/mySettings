@@ -1,8 +1,7 @@
 # Created by newuser for 5.7.1
 # エディタ設定
-export EDITOR="emacs -nw"
-alias emacs='emacs -nw'
-alias em='emacs -nw'
+export EDITOR="/usr/local/bin/emacs -nw"
+alias emacs='/usr/local/bin/emacs -nw'
 
 # less
 alias less='/usr/local/bin/less -X'
