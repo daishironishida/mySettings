@@ -1,7 +1,5 @@
 {
     "~f" = "moveWordForward:";
     "~b" = "moveWordBackward:";
-    "~<" = "moveToBeginningOfDocument:";
-    "~>" = "moveToEndOfDocument:";
     "~d" = "deleteWordForward:";
 }
