@@ -1,0 +1,70 @@
+##### prompt #####
+autoload -Uz colors
+colors
+PS1="%F{cyan}%n%f:%B%c%b$ " # show username and directory
+
+##### autocomplete #####
+autoload -U compinit
+compinit -u
+setopt complete_in_word
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion::complete:*' use-cache true
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+setopt list_packed
+
+##### word is separated by / #####
+autoload -U select-word-style
+select-word-style bash
+
+##### show colors in ls #####
+export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxf
+alias ls='ls -G'
+
+##### less #####
+alias less='/usr/bin/less -X'   # act similar to cat when showing small file
+
+##### history #####
+HISTFILE=$HOME/.zsh_history # file to save history
+HISTSIZE=100000	            # max number of commands to save in memory
+SAVEHIST=1000000            # max number of commands to save in $HISTFILE
+
+setopt INC_APPEND_HISTORY   # new history lines are added to $HISTFILE incrementally
+setopt SHARE_HISTORY        # import new commands from history file
+setopt HIST_SAVE_NO_DUPS    # omit duplicates when writing history file
+setopt HIST_FIND_NO_DUPS    # omit duplicates when searching history file
+setopt HIST_REDUCE_BLANKS   # remove superfluous blanks
+
+##### peco history search ##### 
+function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+##### peco directory search #####
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+function peco-get-destination-from-cdr() {
+  cdr -l | \
+  sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
+  peco --query "$LBUFFER"
+}
+function peco-cdr() {
+  local destination="$(peco-get-destination-from-cdr)"
+  if [ -n "$destination" ]; then
+    BUFFER="cd $destination"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^V' peco-cdr
