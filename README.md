@@ -14,39 +14,23 @@
   - Preferences -> Profiles -> Window
   - StyleをMaximizedにする
 
+## zsh
+
+.zshrcに以下を追記
+
+- `source ~/.zsettings`
+
 ## homebrew
 
 - [インストール手順](https://brew.sh/index_ja)
   - `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-## zsh
-
-- [インストール手順](https://qiita.com/iwaseasahi/items/a2b00b65ebd06785b443)
-  - `brew install zsh`
-  - `sudo vi /etc/shells`
-    - 最後に `/usr/local/bin/zsh` を追加
-  - `chsh -s /usr/local/bin/zsh`
-  - ターミナル再起動
-- peco
-  - `brew install peco`
-- cdrの保存ファイル用
-  - `mkdir ~/.cache`
-- lessの最新版
-  - `brew install less`
-  - （一応パスがあってるか確認？）
-
-## emacs
-
-- [インストール手順](https://qiita.com/hnw/items/d7d71dfcfecff80ad8f1)
-  - `brew tap railwaycat/emacsmacport`
-  - `brew install emacs-mac --with-modern-icon`
-    - これってビルドしてるってことよね、ダウンロードでも良いかも
-- メモフォルダ
-  - `mkdir ~/memo/tmp`
-
 ## tmux
 
-- `brew install tmux`
+```
+brew extract --version=3.1 tmux homebrew/cask
+brew install tmux@3.1
+```
 
 ## その他
 
@@ -56,8 +40,3 @@
 mkdir ~/Library/KeyBindings
 cp DefaultKeyBinding.dict ~/Library/KeyBindings
 ```
-
-### XCode
-
-- Preferences -> Key Bindings
-- `Move word left`, `Move word right`, `Delete word forward` の設定
