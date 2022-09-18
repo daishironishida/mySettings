@@ -47,6 +47,12 @@
 
 - `source ~/.zsettings`
 
+読み込みを速くするためにコンパイル
+
+```zsh
+zcompile ~/.zshrc
+```
+
 ## tmux
 
 tmux 3.2ではShift + alt + 左右キーが効かなくなってしまったので、tmux 3.1をインストール
