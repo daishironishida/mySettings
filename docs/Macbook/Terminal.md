@@ -53,6 +53,8 @@
 zcompile ~/.zshrc
 ```
 
+設定の詳細については[こちら](Zsh.md)
+
 ## tmux
 
 tmux 3.2ではShift + alt + 左右キーが効かなくなってしまったので、tmux 3.1をインストール
