@@ -52,6 +52,10 @@ Alt + fで単語移動、など
 
 [Terminal Settings](Terminal.md)参照
 
+## Python
+
+[Python](Python.md)参照
+
 ## XCode
 
 ### vimモード
