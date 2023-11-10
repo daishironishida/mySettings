@@ -79,6 +79,7 @@ git config --global alias.cam "commit --amend"
 git config --global alias.dh "diff --cached"
 git config --global alias.llog "log --graph --oneline"
 git config --global alias.lloga "log --graph --oneline --all"
+git config --global alias.rmall "\!git ls-files -d -z | xargs -0 git rm --cached --quiet"
 ```
 
 ### 差分表示
