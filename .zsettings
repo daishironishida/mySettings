@@ -23,6 +23,9 @@ alias ls='ls -G'
 ##### less #####
 alias less='/usr/bin/less -X'   # act similar to cat when showing small file
 
+##### tmux #####
+bindkey -e # Use emacs style shortcuts in tmux 
+
 ##### history #####
 HISTFILE=$HOME/.zsh_history # file to save history
 HISTSIZE=100000	            # max number of commands to save in memory
