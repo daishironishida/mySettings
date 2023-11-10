@@ -60,8 +60,10 @@ zcompile ~/.zshrc
 tmux 3.2ではShift + alt + 左右キーが効かなくなってしまったので、tmux 3.1をインストール
 
 ```zsh
-brew extract --version=3.1 tmux homebrew/cask
+brew tap-new daishironishida/tmux
+brew extract --version 3.1 tmux daishironishida/tmux
 brew install tmux@3.1
+brew pin tmux@3.1
 ```
 
 ## git
