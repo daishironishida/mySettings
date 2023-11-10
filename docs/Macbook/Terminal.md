@@ -80,3 +80,10 @@ git config --global alias.dh "diff --cached"
 git config --global alias.llog "log --graph --oneline"
 git config --global alias.lloga "log --graph --oneline --all"
 ```
+
+### 差分表示
+
+[delta](https://github.com/dandavison/delta)で差分を左右に並べて表示できます。
+
+READMEにしたがってインストール＋.gitconfigに設定する。
+
