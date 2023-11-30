@@ -102,7 +102,7 @@ READMEにしたがってインストール＋.gitconfigに設定する。
     line-numbers = true # show line number
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
-    plus-style = normal DarkGreen  # default is too dark on tmux
+    plus-style = syntax DarkGreen  # default is too dark on tmux
 
 [merge]
     conflictstyle = diff3
