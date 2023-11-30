@@ -88,3 +88,26 @@ git config --global alias.rmall "\!git ls-files -d -z | xargs -0 git rm --cached
 
 READMEにしたがってインストール＋.gitconfigに設定する。
 
+.gitconfigの設定
+
+```
+[core]
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    side-by-side = true # use split view
+    line-numbers = true # show line number
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    plus-style = normal DarkGreen  # default is too dark on tmux
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+```
+
