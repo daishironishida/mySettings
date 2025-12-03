@@ -103,12 +103,8 @@ READMEにしたがってインストール＋.gitconfigに設定する。
     navigate = true    # use n and N to move between diff sections
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
     plus-style = syntax DarkGreen  # default is too dark on tmux
-    pager = less -+F   # always use q to exit
 
 [merge]
     conflictstyle = diff3
-
-[diff]
-    colorMoved = default
 ```
 
